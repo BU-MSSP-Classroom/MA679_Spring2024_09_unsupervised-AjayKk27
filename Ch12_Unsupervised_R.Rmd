@@ -29,6 +29,7 @@ pacman::p_load(
       , RBM
       , Rtsne
       , umap
+      , pheatmap
       )
 
 ```
@@ -125,7 +126,8 @@ Do EDA and find patterns in the data. Notice that this data is multivariate, wit
 
 ```{r}
 #
-#
+hist(Pokemon$HP)
+ggplot(data=Pokemon,aes(x=HP, y= Speed))+geom_point()
 ```
 
 Comment of the result:
@@ -140,7 +142,9 @@ Your task is to group the Pokemon into some meaningful clusters that makes sense
 
 ```{r}
 #
-#
+Pokemon_clust<- Pokemon[,6:11]
+Pokemon_clust_map<- pheatmap(Pokemon_clust
+                             )
 ```
 
 Comment of the result:
